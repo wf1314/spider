@@ -11,6 +11,7 @@
 import requests
 import json
 
+
 class GeekBang(object):
 
     def __init__(self):
@@ -80,10 +81,10 @@ class GeekBang(object):
             headers = {
                 'Referer': 'https://time.geekbang.org/olumn/article/72388',
             }
-            r = self.post(url, json=data,headers=headers)
+            r = self.post(url, json=data, headers=headers)
             article = json.loads(r.text)['data']['article_content']
             print(article)
-            # with open('{}.html'.format(no), 'w', encoding='UTF-8') as f:
+            # with open('{}.html'.format(no + 1), 'w', encoding='UTF-8') as f:
             #     f.write('<html>\n')
             #     f.write('<meta charset="utf-8">\n')
             #     f.write(article)
@@ -92,6 +93,7 @@ class GeekBang(object):
     def run(self):
         self.login()
         self.get_course()
+
 
 if __name__ == '__main__':
     g = GeekBang()
